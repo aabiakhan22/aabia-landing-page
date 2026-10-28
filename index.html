@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#fff8f3">
   <meta name="description" content="Explore digital skills and freelancing opportunities with Aabia Khan. A women-focused digital learning community.">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+  s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '922699047441468');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
   <title>Aabia Khan | Digital Skills & Freelancing</title>
 
   <style>
@@ -392,7 +406,6 @@
     }
 
     /* Enquiry popup */
-
     .modal {
       display: none;
       position: fixed;
@@ -591,6 +604,10 @@
 </head>
 
 <body>
+  <!-- Meta Pixel noscript fallback -->
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=922699047441468&ev=PageView&noscript=1"
+    alt=""></noscript>
 
   <header>
     <nav class="container">
@@ -887,7 +904,6 @@
   </footer>
 
   <!-- Enquiry Form Popup -->
-
   <div class="modal" id="enquiryModal" role="dialog"
        aria-modal="true" aria-labelledby="formTitle">
 
@@ -1011,11 +1027,16 @@
       const whatsappURL =
         "https://wa.me/919412611747?text=" + message;
 
+      // Track the form's final action as a Contact event.
+      // This records the click/redirect attempt, not a confirmed WhatsApp message.
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Contact");
+      }
+
       window.open(whatsappURL, "_blank");
 
       closeForm();
     });
   </script>
-
 </body>
 </html>
